@@ -415,7 +415,7 @@ function rotateMatrix(matrix) {
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
 function sortByAsc(/* arr */) {
-  console.log('Not iMPLMENETED'); // Placeholder implementation
+  throw new Error('Not implemented'); // Placeholder implementation
 }
 /**
  * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
@@ -434,36 +434,8 @@ function sortByAsc(/* arr */) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(str, iterations) {
-  const { length } = str;
-  const result = new Array(length);
-
-  // Initialize result with the original string
-  for (let i = 0; i < length; i += 1) {
-    result[i] = str.charCodeAt(i);
-  }
-
-  // Perform the shuffling
-  for (let iter = 0; iter < iterations; iter += 1) {
-    let evenIndex = 0;
-    let oddIndex = Math.floor((length + 1) / 2);
-
-    for (let i = 0; i < length; i += 1) {
-      if (i % 2 === 0) {
-        result[(evenIndex += 1)] = result[i];
-      } else {
-        result[(oddIndex += 1)] = result[i];
-      }
-    }
-  }
-
-  // Convert the result back to a string
-  let shuffled = '';
-  for (let i = 0; i < length; i += 1) {
-    shuffled += String.fromCharCode(result[i]);
-  }
-
-  return shuffled;
+function shuffleChar(/* str, iterations */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -483,55 +455,8 @@ function shuffleChar(str, iterations) {
  * @param {number} number The source number
  * @returns {number} The nearest larger number, or original number if none exists.
  */
-function getNearestBigger(number) {
-  let n = number;
-  let scale = 1;
-  let prevDigit = n % 10;
-  n = Math.floor(n / 10);
-
-  while (n > 0) {
-    const currentDigit = n % 10;
-    if (currentDigit < prevDigit) {
-      break;
-    }
-    prevDigit = currentDigit;
-    n = Math.floor(n / 10);
-    scale *= 10;
-  }
-  if (n === 0) {
-    return number;
-  }
-
-  let rightPart = number % scale;
-  let leftPart = number - rightPart;
-  let swapDigit = 10;
-  let tempScale = 1;
-
-  while (tempScale <= scale) {
-    const digit = Math.floor(rightPart / tempScale) % 10;
-    if (digit > n % 10 && digit < swapDigit) {
-      swapDigit = digit;
-    }
-    tempScale *= 10;
-  }
-
-  // Swap the digits
-  leftPart += (swapDigit - (n % 10)) * (scale / 10);
-  rightPart -= (swapDigit - (n % 10)) * (scale / 10);
-
-  // Sort the right part in ascending order
-  let sortedRightPart = 0;
-  for (let i = 0; i <= 9; i += 1) {
-    tempScale = 1;
-    while (tempScale <= scale) {
-      if (Math.floor(rightPart / tempScale) % 10 === i) {
-        sortedRightPart = sortedRightPart * 10 + i;
-      }
-      tempScale *= 10;
-    }
-  }
-
-  return leftPart + sortedRightPart;
+function getNearestBigger(/* number */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
